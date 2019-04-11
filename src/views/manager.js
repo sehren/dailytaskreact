@@ -22,7 +22,7 @@ class Manager extends Component {
         this.getTask().then(res => this.setState({daily : res.daily,total : res.total}));
     }
     getTask = async () => {
-        let res = await axios.get('/api/manager');
+        let res = await axios.get('https://dailytaskxcidic.herokuapp.com/api/manager');
         let data = await res.data;
         return data;
     }

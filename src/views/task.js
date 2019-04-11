@@ -34,7 +34,7 @@ class Task extends Component {
     }
     getTask = async () => {
         var id = localStorage.getItem('id')
-        let res = await axios.post('/api/task',{id : id});
+        let res = await axios.post('https://dailytaskxcidic.herokuapp.com/api/task',{id : id});
         let data = await res.data;
         for(let i=0;i<data.task.length;i++){
             let date = new Date(data.task[i].date)
@@ -43,7 +43,7 @@ class Task extends Component {
         return data;
     }
     delete(id){
-        axios.post('/api/delete',{id : id}).then((res)=>{
+        axios.post('https://dailytaskxcidic.herokuapp.com/api/delete',{id : id}).then((res)=>{
             window.location.reload();
         })
     }
@@ -54,11 +54,11 @@ class Task extends Component {
         event.preventDefault();
         var id = localStorage.getItem('id')
         if(!this.state.editTask)
-            axios.post('/api/addTask',{id :id,task : this.state.addTask}).then((res)=>{
+            axios.post('https://dailytaskxcidic.herokuapp.com/api/addTask',{id :id,task : this.state.addTask}).then((res)=>{
                 window.location.reload();
             })
         else
-            axios.post('/api/editTask',{id :this.state.idTask,task : this.state.addTask}).then((res)=>{
+            axios.post('https://dailytaskxcidic.herokuapp.com/api/editTask',{id :this.state.idTask,task : this.state.addTask}).then((res)=>{
                 window.location.reload();
             })
     }

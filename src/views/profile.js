@@ -35,14 +35,14 @@ class Profile extends Component {
     }
     getProfile = async () => {
         var id = localStorage.getItem('id')
-        let res = await axios.post('/api/profile',{id : id});
+        let res = await axios.post('https://dailytaskxcidic.herokuapp.com/api/profile',{id : id});
         let data = await res.data;
         return data;
     }
     editProfile=(event)=>{
         event.preventDefault();
         let self = this
-        axios.post('/api/editProfile',{
+        axios.post('https://dailytaskxcidic.herokuapp.com/api/editProfile',{
             name : self.state.name,
             address : self.state.address,
             id : localStorage.getItem('id')})

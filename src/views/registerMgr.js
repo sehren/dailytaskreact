@@ -33,7 +33,7 @@ class Home extends Component {
             email : this.state.email,
             password : this.state.password
         }
-        axios.post('/api/register/manager',data).then((res)=>{
+        axios.post('https://dailytaskxcidic.herokuapp.com/api/register/manager',data).then((res)=>{
             if(res.data.isReg){
                 localStorage.setItem('isLog',true)
                 localStorage.setItem('type','manager')

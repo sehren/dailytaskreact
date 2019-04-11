@@ -36,7 +36,7 @@ class Home extends Component {
             password : this.state.passwordEmployee
         }
         var self = this
-        axios.post('/api/login/employee',employee).then(function(res){
+        axios.post('https://dailytaskxcidic.herokuapp.com/api/login/employee',employee).then(function(res){
             if(res.data.isLog){
                 localStorage.setItem('isLog',true)
                 localStorage.setItem('type','employee')
@@ -58,7 +58,7 @@ class Home extends Component {
             password : this.state.passwordManager
         }
         var self = this
-        axios.post('/api/login/manager',manager).then(function(res){
+        axios.post('https://dailytaskxcidic.herokuapp.com/api/login/manager',manager).then(function(res){
             if(res.data.isLog){
                 localStorage.setItem('isLog',true)
                 localStorage.setItem('type','manager')

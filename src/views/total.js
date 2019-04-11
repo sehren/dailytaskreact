@@ -26,7 +26,7 @@ class Total extends Component {
         this.setState({[ev.target.name] : ev.target.value});
     }
     getTask = async () => {
-        let res = await axios.get('/api/total');
+        let res = await axios.get('https://dailytaskxcidic.herokuapp.com/api/total');
         let data = await res.data;
         for(let i=0;i<data.task.length;i++){
             let date = new Date(data.task[i].date)
@@ -37,7 +37,7 @@ class Total extends Component {
     search = (ev) =>{
         ev.preventDefault();
         let self = this;
-        axios.post('/api/search',{name : self.state.name }).then((resp)=>{
+        axios.post('https://dailytaskxcidic.herokuapp.com/api/search',{name : self.state.name }).then((resp)=>{
             for(let i=0;i<resp.data.task.length;i++){
                 let date = new Date(resp.data.task[i].date)
                 resp.data.task[i].date = date.toLocaleString()

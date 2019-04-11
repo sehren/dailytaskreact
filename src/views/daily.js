@@ -21,7 +21,7 @@ class Daily extends Component {
         this.getTask().then(res => this.setState({task : res.task}));
     }
     getTask = async () => {
-        let res = await axios.get('/api/daily');
+        let res = await axios.get('https://dailytaskxcidic.herokuapp.com/api/daily');
         let data = await res.data;
         for(let i=0;i<data.task.length;i++){
             let date = new Date(data.task[i].date)

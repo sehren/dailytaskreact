@@ -31,7 +31,7 @@ class Employee extends Component {
     }
     getTask = async () => {
         var id = localStorage.getItem('id')
-        let res = await axios.post('/api/employee',{id : id});
+        let res = await axios.post('https://dailytaskxcidic.herokuapp.com/api/employee',{id : id});
         let data = await res.data;
         return data;
     } 
